@@ -1,8 +1,11 @@
 # Movies App (Frontend)
 
---якщо программа не запустилась командою docker run --name movies -p 3000:3000 -e
-API_URL=http://localhost:8000/api/v1
-your_super_account/movies
+--для запуску фронту
+
+1. підніміть бек - https://hub.docker.com/r/webbylabhub/movies
+2. docker run --name movies -p 3000:3000 -e API_URL=http://localhost:8000/api/v1 aserbs/movies
+
+--якщо программа не запустилась однією командою докера
 
 можете підняти дев вручну
 -- Для використання API_URL треба зробити .env файл із змінною VITE_API_URL
