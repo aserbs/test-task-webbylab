@@ -1,13 +1,21 @@
-import type { IMovie } from "./types";
-import MovieListItem from "./components/shared/MovieListItem";
-import { useMovies } from "./hooks/useMovies";
-import TopBar from "./components/shared/TopBar";
-import { Toaster } from "sonner";
-import AddFilmForm from "./components/shared/AddFilmForm";
+import type { IMovie } from "../types";
+import MovieListItem from "../components/shared/MovieListItem";
+import { useMovies } from "../hooks/useMovies";
+import TopBar from "../components/shared/TopBar";
+
+import AddFilmForm from "../components/shared/AddFilmForm";
 import React from "react";
 import { AnimatePresence } from "framer-motion";
+import { useNavigate } from "@tanstack/react-router";
 
 export const App = () => {
+  const navigate = useNavigate();
+  const TOKEN = localStorage.getItem("token");
+
+  if (!TOKEN) {
+    navigate({ to: "/login" });
+  }
+
   const { movies, status, error, refresh } = useMovies();
   const [isFormOpen, setIsFormOpen] = React.useState(false);
 
@@ -37,8 +45,6 @@ export const App = () => {
           )}
         </ul>
       </div>
-
-      <Toaster />
     </div>
   );
 };
