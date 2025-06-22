@@ -9,11 +9,11 @@ import { useMovies } from "@/hooks/useMovies";
 
 type Props = {
   movie: IMovie;
+  refresh: () => void;
 };
 
-export default function MovieListItem({ movie }: Props) {
+export default function MovieListItem({ movie, refresh }: Props) {
   const { handleOpenMovieInfo, setIsOpen, isOpen, movieInfo } = useMovieInfo();
-  const { refresh } = useMovies();
 
   const handleDeleteMovie = async (id: number) => {
     const res = await movieService.fetchDeleteMovie(id);
@@ -47,6 +47,7 @@ export default function MovieListItem({ movie }: Props) {
         </Button>
         <Button
           variant={"destructive"}
+          className="cursor-pointer"
           onClick={() => handleDeleteMovie(movie.id)}
         >
           Видалити

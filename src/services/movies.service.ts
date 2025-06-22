@@ -1,8 +1,10 @@
 import type {
+  ICreateMovieResponse,
   IDeleteMovieResponse,
   IFetchMoviesParams,
   IFetchMoviesResponse,
   IMovieInfoResponse,
+  INewMovie,
 } from "@/types";
 import axiosInstance from "./axiosInstance";
 
@@ -35,6 +37,13 @@ class MovieService {
     const res = await axiosInstance.delete<IDeleteMovieResponse>(
       `${this.BASE_URL}/${id}`
     );
+    return res.data;
+  }
+
+  async fetchCreateMovie(newMovie: INewMovie) {
+    const res = await axiosInstance.post<ICreateMovieResponse>(this.BASE_URL, {
+      ...newMovie,
+    });
     return res.data;
   }
 }

@@ -24,8 +24,8 @@ export const MovieInfoPopup = ({ movieInfo, setIsOpen, isOpen }: Props) => {
           <DialogDescription></DialogDescription>
         </DialogHeader>
         <div className="flex flex-col gap-3">
-          <p>ID: {movieInfo?.id}</p>
           <p>Назва: {movieInfo?.title}</p>
+          <p>ID: {movieInfo?.id}</p>
           <p>Рік випуску: {movieInfo?.year}</p>
           <p>Формат: {movieInfo?.format}</p>
           <div className="flex flex-wrap gap-2 items-center">

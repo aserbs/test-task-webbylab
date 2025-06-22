@@ -16,6 +16,8 @@ export interface IMovieInfo {
   title: string;
   year: number;
   format: string;
+  createdAt: string;
+  updatedAt: string;
   actors: IActor[];
 }
 
@@ -54,4 +56,25 @@ export interface IDeleteMovieResponse {
 export interface IResponseError {
   code: string;
   fields: {};
+}
+
+export interface INewMovie {
+  title: string;
+  year: number;
+  format: string;
+  actors: string[];
+}
+
+export interface ICreateMovieResponse {
+  data: IMovieInfo;
+  status: number;
+  error: {
+    code: string;
+    fields: {
+      year: string;
+      title: string;
+      format: string;
+      actors: string;
+    };
+  };
 }
