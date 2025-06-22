@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { movieService } from "@/services/movies.service";
 import { toast } from "sonner";
-import { useMovies } from "@/hooks/useMovies";
 import { motion } from "framer-motion";
 
 type Props = {

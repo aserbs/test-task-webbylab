@@ -5,7 +5,6 @@ import { useMovieInfo } from "@/hooks/useMovieInfo";
 import { MovieInfoPopup } from "./MovieInfoPopup";
 import { movieService } from "@/services/movies.service";
 import { toast } from "sonner";
-import { useMovies } from "@/hooks/useMovies";
 
 type Props = {
   movie: IMovie;

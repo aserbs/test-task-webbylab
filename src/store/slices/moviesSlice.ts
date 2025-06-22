@@ -9,7 +9,6 @@ import {
 
 export const fetchMovies = createAsyncThunk(
   "movies/fetchAll",
-
   async (search: string, { rejectWithValue }) => {
     try {
       const data = await movieService.fetchAll(search);
@@ -19,21 +18,6 @@ export const fetchMovies = createAsyncThunk(
     }
   }
 );
-
-// 2. Thunk для видалення фільму
-// export const deleteMovie = createAsyncThunk(
-//   'movies/delete',
-//   async (id: number, { rejectWithValue }) => {
-//     try {
-//       await movieService.delete(id);
-//       return id;
-//     } catch (error: any) {
-//       return rejectWithValue(error.message);
-//     }
-//   }
-// );
-
-// Тут можна додати інші thunks: addMovie, importMovies...
 
 interface MoviesState {
   items: IMovie[];

@@ -46,6 +46,15 @@ class MovieService {
     });
     return res.data;
   }
+
+  async fetchImportTxt(form: FormData) {
+    const res = await axiosInstance.post(`${this.BASE_URL}/import`, form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return res.data;
+  }
 }
 
 export const movieService = new MovieService();

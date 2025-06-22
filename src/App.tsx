@@ -13,7 +13,7 @@ export const App = () => {
 
   return (
     <div className="">
-      <TopBar setIsFormOpen={setIsFormOpen} />
+      <TopBar setIsFormOpen={setIsFormOpen} refresh={refresh} />
       <AnimatePresence>
         {isFormOpen && (
           <AddFilmForm setIsFormOpen={setIsFormOpen} refresh={refresh} />
