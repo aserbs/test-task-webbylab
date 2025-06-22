@@ -1,54 +1,17 @@
-# React + TypeScript + Vite
+# Movies App (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+--якщо программа не запустилась командою docker run --name movies -p 3000:3000 -e
+API_URL=http://localhost:8000/api/v1
+your_super_account/movies
 
-Currently, two official plugins are available:
+можете підняти дев вручну
+-- Для використання API_URL треба зробити .env файл із змінною VITE_API_URL
+-- npm install
+-- npm run dev
+-- також потрібно підняти образ беку https://hub.docker.com/r/webbylabhub/movies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+пояснення архітектури:
+-роутінг зроблено за допогою tanstack-router
+-для зберігання массиву з фільмами використав Redux
+-написано 2 сервіси для запитів на бек: login.service та movie.service.
+вони використовують інстанс аксіосу в котрому задано токен авторизації та отримується апі_юрл з .енв
